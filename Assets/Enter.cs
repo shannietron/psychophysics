@@ -4,10 +4,10 @@ using UnityEngine;
 
 
 public class Enter : MonoBehaviour {
-    public static bool success = false;
+   // public static bool success = false;
     private string filePath = "D:/mycoords.txt";
     private string coordinates = "";
-    private static int numFrames = 45; //number of frames to capture @ 90fps
+    private static int numFrames = 90; //number of frames to capture @ 90fps
     private int count = 0;
 
 
@@ -34,9 +34,9 @@ public class Enter : MonoBehaviour {
             
         Transform trans = other.transform;
         coordinates += "x: " + trans.position.x.ToString() + ", y: " + trans.position.y.ToString() + ", z: " + trans.position.z.ToString() + ", time: " + Time.deltaTime.ToString() + System.Environment.NewLine;
-        if (count == 45)
+        if (count == numFrames)
         {
-            success = true;
+            spawn.success = true;
             System.IO.File.WriteAllText(filePath, coordinates);
             coordinates = "";
             count = 0;

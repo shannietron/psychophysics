@@ -24,6 +24,7 @@ public class countDown : MonoBehaviour {
             yield return new WaitForSeconds(1);
         }
         Debug.Log("Countdown Complete!");
+        spawn.fail = true;
         Object.Destroy(this.gameObject);
 
     }
