@@ -11,6 +11,8 @@ public class spawn : MonoBehaviour {
     public static bool success = false;
     public static bool fail = false;
 
+    private string filePath = "scale.txt";
+
     // Use this for initialization
     void Start () {
     }
@@ -18,10 +20,14 @@ public class spawn : MonoBehaviour {
 // Update is called once per frame
     void Update () {
 
-       if(fail)//&&  !(GameObject.FindWithTag("sphere")))
+       // System.IO.File.WriteAllText(filePath, scale.ToString()+ System.Environment.NewLine);
+        
+
+        if (fail)//&&  !(GameObject.FindWithTag("sphere")))
         {
             var sphereClone = Instantiate(sphere);
             scale = scale * scaleUp;
+            System.IO.File.AppendAllText(filePath, scale.ToString() + System.Environment.NewLine);
             sphereClone.transform.localScale = sphere.transform.localScale * scale;
             fail = false;
         }
@@ -30,6 +36,7 @@ public class spawn : MonoBehaviour {
          {
             var sphereClone = Instantiate (sphere);
             scale = scale * scaleDown;
+            System.IO.File.AppendAllText(filePath, scale.ToString() + System.Environment.NewLine);
             sphereClone.transform.localScale = sphere.transform.localScale * scale; //new Vector3 (sphere.transform.localScale.x * 0.9,0.2f,0.2f);
             success = false;
         }
