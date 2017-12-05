@@ -7,17 +7,26 @@ public class spawn : MonoBehaviour {
     public float scaleDown = 0.8f;
     public float scaleUp = 1.25f;
     public float scale = 1f;
+    public string pos;
 
     public static bool success = false;
     public static bool fail = false;
+    private System.DateTime startGame;
+    private string startGameString;
+    private string filePath;
+    
 
-    private string filePath = "scale.txt";
+    //private string filePath = "scale.txt";
 
     // Use this for initialization
     void Start () {
-    }
+        startGame = System.DateTime.Now;
+        startGameString = startGame.ToString("dd-mm-yyyy-hh-mm-ss");
+        filePath = "Data/" +pos+ "coords" + startGameString + ".txt";
 
-// Update is called once per frame
+}
+
+    // Update is called once per frame
     void Update () {
 
        // System.IO.File.WriteAllText(filePath, scale.ToString()+ System.Environment.NewLine);

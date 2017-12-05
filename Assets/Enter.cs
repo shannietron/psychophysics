@@ -7,7 +7,7 @@ public class Enter : MonoBehaviour {
    // public static bool success = false;
     private string filePath = "D:/mycoords.txt";
     private string coordinates = "";
-    private static int numFrames = 90; //number of frames to capture @ 90fps
+    private static int numFrames = 45; //number of frames to capture @ 90fps
     private int count = 0;
 
 
